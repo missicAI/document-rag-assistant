@@ -1,0 +1,119 @@
+{
+  "backend": "tfidf",
+  "questions": 10,
+  "top1_accuracy": 1.0,
+  "recall_at_3": 1.0,
+  "note": "Small hand-written development set on five sample documents. Retrieval only; does not measure LLM answer correctness or abstention.",
+  "cases": [
+    {
+      "question": "Thực tập sinh cần tạo nhánh Git như thế nào?",
+      "source": "01_git.md",
+      "retrieved": [
+        "01_git.md",
+        "03_evaluation.md",
+        "02_data.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "Pull request cần mô tả những gì?",
+      "source": "01_git.md",
+      "retrieved": [
+        "01_git.md",
+        "02_data.md",
+        "04_api.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "Tại sao phải xóa tin nhắn trùng trước khi chia dữ liệu?",
+      "source": "02_data.md",
+      "retrieved": [
+        "02_data.md",
+        "03_evaluation.md",
+        "01_git.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "Tỷ lệ chia dữ liệu huấn luyện và kiểm tra là bao nhiêu?",
+      "source": "02_data.md",
+      "retrieved": [
+        "02_data.md",
+        "03_evaluation.md",
+        "04_api.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "Precision của lớp spam đo điều gì?",
+      "source": "03_evaluation.md",
+      "retrieved": [
+        "03_evaluation.md",
+        "04_api.md",
+        "02_data.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "F1-score là gì?",
+      "source": "03_evaluation.md",
+      "retrieved": [
+        "03_evaluation.md",
+        "05_rag.md",
+        "01_git.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "Endpoint API dự đoán nhận yêu cầu nào?",
+      "source": "04_api.md",
+      "retrieved": [
+        "04_api.md",
+        "03_evaluation.md",
+        "01_git.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "Mã HTTP nào khi text trống?",
+      "source": "04_api.md",
+      "retrieved": [
+        "04_api.md",
+        "02_data.md",
+        "01_git.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "Overlap trong chia đoạn là gì?",
+      "source": "05_rag.md",
+      "retrieved": [
+        "05_rag.md",
+        "03_evaluation.md",
+        "02_data.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    },
+    {
+      "question": "RAG là quy trình gì?",
+      "source": "05_rag.md",
+      "retrieved": [
+        "05_rag.md",
+        "01_git.md",
+        "03_evaluation.md"
+      ],
+      "top1_correct": true,
+      "recall_at_3": true
+    }
+  ]
+}

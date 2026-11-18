@@ -1,0 +1,12 @@
+[
+  {"question":"Thực tập sinh cần tạo nhánh Git như thế nào?","source":"01_git.md"},
+  {"question":"Pull request cần mô tả những gì?","source":"01_git.md"},
+  {"question":"Tại sao phải xóa tin nhắn trùng trước khi chia dữ liệu?","source":"02_data.md"},
+  {"question":"Tỷ lệ chia dữ liệu huấn luyện và kiểm tra là bao nhiêu?","source":"02_data.md"},
+  {"question":"Precision của lớp spam đo điều gì?","source":"03_evaluation.md"},
+  {"question":"F1-score là gì?","source":"03_evaluation.md"},
+  {"question":"Endpoint API dự đoán nhận yêu cầu nào?","source":"04_api.md"},
+  {"question":"Mã HTTP nào khi text trống?","source":"04_api.md"},
+  {"question":"Overlap trong chia đoạn là gì?","source":"05_rag.md"},
+  {"question":"RAG là quy trình gì?","source":"05_rag.md"}
+]
