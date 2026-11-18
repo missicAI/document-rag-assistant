@@ -1,46 +1,38 @@
-# RAG Desk
+# Hỏi đáp tài liệu tiếng Việt
 
-RAG Desk helps you find answers in your documents. Upload a PDF or text file, ask a question, and check the passages it finds. Each passage keeps its file name and page number.
+Tải một tài liệu ngắn lên, đặt câu hỏi bằng tiếng Việt và đọc câu trả lời. Ứng dụng yêu cầu mô hình dựa vào nội dung tệp, kèm một câu trích ngắn để bạn kiểm tra lại.
 
-With a language model connected, the app can use those passages to write an answer. You can also search the documents without a model.
+Bản này được Việt hóa từ ví dụ File Q&A của Streamlit. Chỉ giữ TXT và Markdown để code dễ đọc và việc chạy trên máy đơn giản hơn.
 
-## Run the app
+## Chạy ứng dụng
 
-Use Python 3.12. On Windows, run `CAI_DAT.bat`, then open `CHAY_DEMO.bat`.
-
-From a terminal:
+Cài Python 3.12. Trên Windows, mở `CAI_DAT.bat` rồi chạy `CHAY_DEMO.bat`.
 
 ```bash
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-The app includes a short sample handbook. Turn it off when you want to search only your own files. PDF files need readable text; scanned pages need to be converted first.
-
-## Add answers from a model
-
-Install [Ollama](https://ollama.com/download) and run `ollama pull llama3.2:3b`. Copy `.env.example` to `.env`, restart the app, and select **Hỏi đáp bằng LLM**.
-
-The settings can also point to another service that supports JSON schema responses. Its API address should end in `/v1`; use `LLM_PROVIDER=compatible` and keep the API key in `.env`.
-
-## How the search works
-
-The app splits a document into short passages and looks for the closest matches to your question. The default search uses TF-IDF, a lightweight way to compare text without downloading a model.
-
-A second search option uses Sentence Transformers to compare meaning. Install `requirements-semantic.txt` before selecting it; the first run downloads the model. This optional path has not yet been checked in the supplied run.
-
-On ten sample questions, the default search put the correct source file first every time. The set is small. This result measures the search step, not the accuracy of answers written by a model.
-
-Sources help you review an answer, but a model can still misunderstand them. When the documents do not contain enough information, it is asked to say so.
-
-## Check the project
+Ứng dụng cần mô hình thật để trả lời. Nếu dùng thiết lập mặc định, cài [Ollama](https://ollama.com/download) và chạy:
 
 ```bash
-python -m pip install -r requirements-dev.txt
-python -m pytest -q
-python evaluate.py
+ollama pull qwen2.5:1.5b
 ```
 
-`ragdesk/documents.py` reads and splits files. `retrieval.py` finds passages, and `generation.py` prepares an answer with source references. Results from the sample search are saved in `reports/`.
+Bạn cũng có thể đổi địa chỉ máy chủ, tên mô hình và khóa truy cập trong phần bên trái. Dịch vụ cần hỗ trợ cách gọi tương thích OpenAI; dịch vụ bên ngoài có thể tính phí.
 
-Built with Python, Streamlit, scikit-learn and pypdf. The sample handbook is fictional and was written for this project. Project code uses the MIT license.
+## Dùng thử
+
+Chọn tệp `du_lieu_mau/huong_dan_phong_van.txt`, rồi hỏi: “Trước buổi phỏng vấn, ứng viên cần chuẩn bị những gì?”
+
+Bạn có thể thay bằng tệp tiếng Việt của mình. Tệp cần lưu với mã UTF-8, tối đa 200 KB và 20.000 ký tự. Câu hỏi tối đa 2.000 ký tự.
+
+## Cách hoạt động
+
+Code gửi toàn bộ tài liệu ngắn cùng câu hỏi đến mô hình. Bản gọn này không chia đoạn để tìm kiếm, không dùng cơ sở dữ liệu vector và không được mô tả là một hệ thống RAG đầy đủ. Tên repository được giữ để các đường dẫn cũ vẫn dùng được.
+
+Mô hình được yêu cầu nói rõ khi tài liệu không có thông tin. Câu trả lời vẫn có thể sai hoặc trích chưa đúng, nên tài liệu gốc là nơi cần đối chiếu.
+
+Mở `app.py` để đọc từ phần tải tệp, nhập câu hỏi đến phần gửi yêu cầu. Không có câu trả lời tạo sẵn được dùng thay mô hình thật. Kiểm tra tự động dùng phản hồi giả lập để thử giao diện, chưa đo chất lượng mô hình.
+
+Nguồn và phần đã chỉnh nằm tại [NGUON.md](NGUON.md). Giữ giấy phép Apache 2.0 của Streamlit.

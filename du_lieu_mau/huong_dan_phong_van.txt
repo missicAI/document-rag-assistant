@@ -1,0 +1,4 @@
+Trước buổi phỏng vấn thực tập AI, ứng viên nên xem lại CV và chọn một dự án mình hiểu rõ để giới thiệu.
+Với dự án phân loại tin nhắn, cần giải thích dữ liệu lấy từ đâu, vì sao phải chia dữ liệu học và kiểm tra, và mô hình thường nhầm ở những tình huống nào.
+Ứng viên nên chạy thử dự án trên máy trước buổi phỏng vấn. Nếu có chức năng chưa hoàn thiện, hãy nói rõ phần đã làm được và phần dự định cải thiện.
+Trong buổi trao đổi, có thể dùng một ví dụ ngắn để giải thích cách chương trình nhận nội dung và trả kết quả.
